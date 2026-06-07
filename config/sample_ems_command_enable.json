@@ -1,0 +1,9 @@
+{
+  "flexible_load": "enable",
+  "ev_charger": "enable",
+  "battery_mode": "solar_surplus",
+  "target_ev_power_w": 3600,
+  "reason": "Strong solar surplus available; enable flexible loads and EV charging.",
+  "ts": 1780848728
+}
+

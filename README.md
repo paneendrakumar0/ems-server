@@ -25,6 +25,8 @@ The project objective is to reduce grid energy absorption by coordinating:
 - `simulator/digital_twin.py` - Lightweight local digital-twin simulator for PV, load, battery, EV, and relay topics.
 - `controller/ems_controller.py` - EMS decision layer for flexible-load, EV, grid-import, and battery-reserve actions.
 - `bridge/mqtt_controller_bridge.py` - Continuous MQTT bridge from telemetry to EMS command topics.
+- `adapters/hardware_command_adapter.py` - Hardware adapter from EMS commands to ESP32/KinCony/EV/Home Assistant actions.
+- `config/hardware_adapter.example.json` - Safe example mapping for hardware command adapters.
 - `deployment/docker-compose.yml` - Local Mosquitto, InfluxDB, and Grafana support stack.
 - `tools/run_closed_loop.py` - Full-day simulation runner that exports controller decisions to CSV.
 - `tools/generate_report.py` - Markdown/SVG report generator for simulation results.
@@ -49,6 +51,7 @@ Flexible loads, appliance relays, experiments
 Home Assistant --> InfluxDB --> Grafana / CSV export
 
 Telemetry --> EMS Controller --> MQTT commands --> Home Assistant / ESP32 / relays
+EMS commands --> Hardware Adapter --> ESP32 relay / KinCony relay / EV limit
 ```
 
 ## Setup Checklist
@@ -96,6 +99,15 @@ In another terminal, publish simulated telemetry:
 
 ```bash
 python3 simulator/digital_twin.py --broker 127.0.0.1 --topic ems/digital_twin/state
+```
+
+## Hardware Adapter Dry Run
+
+```bash
+python3 adapters/hardware_command_adapter.py \
+  --config config/hardware_adapter.example.json \
+  --command-json config/sample_ems_command_enable.json \
+  --dry-run
 ```
 
 ## Immediate Pending Inputs From Professor Cecati

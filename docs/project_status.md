@@ -19,6 +19,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Local deployment support for Mosquitto, InfluxDB, and Grafana.
 - Home Assistant supervisor dashboard for energy flow, storage, EV, controller decisions, relay states, and KPIs.
 - Continuous MQTT controller bridge from telemetry topics to EMS command topics.
+- Hardware command adapter for ESP32 relay, KinCony relay, EV target power, and optional Home Assistant services.
 - Documentation for hardware questions, test procedure, and a professor update email.
 
 ## Done
@@ -40,6 +41,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Home Assistant MQTT entity package added for digital-twin/controller state.
 - Home Assistant dashboard YAML added for supervisor visualization.
 - Continuous MQTT controller bridge added.
+- Hardware command adapter added with dry-run support.
 - Local Docker Compose support added for the MQTT/data stack.
 
 ## Partially Done
@@ -60,4 +62,4 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 
 ## Recommended Next Step
 
-Next recommended engineering stage: add hardware command adapters that translate EMS commands into Home Assistant services, ESP32 relay topics, and EV-charger limits.
+Next recommended engineering stage: add end-to-end demo orchestration so Mosquitto, simulator, controller bridge, and hardware adapter can be launched together.

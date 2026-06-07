@@ -1,0 +1,16 @@
+{
+  "mqtt_broker": "127.0.0.1",
+  "mqtt_port": 1883,
+  "command_topic": "ems/controller/command",
+  "status_topic": "ems/hardware_adapter/status",
+  "flexible_load_mqtt_topic": "ems/edge/esp32c6_load_01/cmd/relay",
+  "kincony_relay_topics": [
+    "ems/kincony_a16/switch/kincony_relay_01/command"
+  ],
+  "ev_limit_mqtt_topic": "ems/ev_charger/cmd/limit_w",
+  "home_assistant_url": null,
+  "home_assistant_token": null,
+  "home_assistant_flexible_entity": null,
+  "home_assistant_ev_entity": null
+}
+

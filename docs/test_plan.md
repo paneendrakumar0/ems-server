@@ -50,6 +50,15 @@
    python3 bridge/mqtt_controller_bridge.py --broker 127.0.0.1
    ```
 
+6. Test hardware adapter dry-run:
+
+   ```bash
+   python3 adapters/hardware_command_adapter.py \
+     --config config/hardware_adapter.example.json \
+     --command-json config/sample_ems_command_enable.json \
+     --dry-run
+   ```
+
 ## Phase 4: Relay Hub Validation
 
 1. Flash `esphome/kincony_kc868_a16.yaml` to the KinCony board.

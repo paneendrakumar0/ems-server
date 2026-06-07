@@ -1,0 +1,9 @@
+{
+  "flexible_load": "disable",
+  "ev_charger": "disable",
+  "battery_mode": "reduce_grid_import",
+  "target_ev_power_w": 0,
+  "reason": "Grid import is above limit; shed non-critical loads.",
+  "ts": 1780848728
+}
+
