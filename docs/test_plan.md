@@ -27,6 +27,8 @@
 5. Verify entity creation and logs.
 6. Add the dashboard YAML from `home_assistant/dashboards/ems_supervisor_dashboard.yaml`.
 7. Confirm that demo MQTT entities and relay entities render without missing-card errors.
+8. Add `home_assistant/packages/ems_action_automations.yaml`.
+9. Keep `EMS Action Dry Run` enabled and verify action logs before touching hardware.
 
 ## Phase 3: Controller Validation
 

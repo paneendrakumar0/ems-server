@@ -19,6 +19,7 @@ The project objective is to reduce grid energy absorption by coordinating:
 - `home_assistant/packages/ems_mqtt_entities.yaml` - MQTT entities for demo telemetry and EMS controller decisions.
 - `home_assistant/automations/bosch_solar_automation.yaml` - Solar-surplus appliance scheduling example through Home Connect.
 - `home_assistant/dashboards/ems_supervisor_dashboard.yaml` - Supervisor dashboard for operator monitoring.
+- `home_assistant/packages/ems_action_automations.yaml` - Safe command-to-action automations for Home Assistant.
 - `home_assistant/packages/research_datalogger.yaml` - InfluxDB logging configuration for research data.
 - `esphome/kincony_kc868_a16.yaml` - Full 16-channel relay mapping for the KinCony KC868-A16.
 - `firmware/esp32_c6_edge_node/` - ESP-IDF firmware skeleton for ESP32-C6 MQTT edge nodes.
@@ -54,6 +55,7 @@ Home Assistant --> InfluxDB --> Grafana / CSV export
 
 Telemetry --> EMS Controller --> MQTT commands --> Home Assistant / ESP32 / relays
 EMS commands --> Hardware Adapter --> ESP32 relay / KinCony relay / EV limit
+EMS command sensors --> Home Assistant safety gates --> HA scripts/services
 ```
 
 ## Setup Checklist

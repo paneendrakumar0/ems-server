@@ -1,0 +1,167 @@
+# Home Assistant package: EMS command-to-action automations.
+#
+# Safe by default:
+# - Hardware action is blocked unless input_boolean.ems_hardware_control_enabled is on.
+# - Manual override blocks automatic actions.
+# - Critical loads are not included here; map only verified flexible loads.
+
+input_boolean:
+  ems_hardware_control_enabled:
+    name: EMS Hardware Control Enabled
+    icon: mdi:shield-check
+  ems_action_dry_run:
+    name: EMS Action Dry Run
+    icon: mdi:test-tube
+    initial: true
+
+input_number:
+  ems_ev_target_limit_w:
+    name: EMS EV Target Limit
+    min: 0
+    max: 11000
+    step: 100
+    unit_of_measurement: W
+    icon: mdi:ev-station
+
+script:
+  ems_apply_flexible_load_command:
+    alias: "EMS: Apply Flexible Load Command"
+    mode: single
+    fields:
+      command:
+        description: "enable, disable, or hold"
+        example: "enable"
+    sequence:
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.ems_action_dry_run
+                state: "on"
+            sequence:
+              - service: logbook.log
+                data:
+                  name: "EMS dry run"
+                  message: "Flexible load command would be applied: {{ command }}"
+                  entity_id: input_boolean.ems_action_dry_run
+
+          - conditions:
+              - condition: template
+                value_template: "{{ command == 'enable' }}"
+            sequence:
+              - service: switch.turn_on
+                target:
+                  entity_id: switch.kincony_relay_01
+
+          - conditions:
+              - condition: template
+                value_template: "{{ command == 'disable' }}"
+            sequence:
+              - service: switch.turn_off
+                target:
+                  entity_id: switch.kincony_relay_01
+
+  ems_apply_ev_limit:
+    alias: "EMS: Apply EV Limit"
+    mode: single
+    fields:
+      target_power_w:
+        description: "EV charging target power in watts"
+        example: 3600
+    sequence:
+      - service: input_number.set_value
+        target:
+          entity_id: input_number.ems_ev_target_limit_w
+        data:
+          value: "{{ target_power_w | int(0) }}"
+
+      - choose:
+          - conditions:
+              - condition: state
+                entity_id: input_boolean.ems_action_dry_run
+                state: "on"
+            sequence:
+              - service: logbook.log
+                data:
+                  name: "EMS dry run"
+                  message: "EV limit would be applied: {{ target_power_w | int(0) }} W"
+                  entity_id: input_number.ems_ev_target_limit_w
+
+        default:
+          - service: logbook.log
+            data:
+              name: "EMS EV limit"
+              message: "Replace this log action with the wallbox/Home Assistant EV limit service after AC11E integration is confirmed."
+              entity_id: input_number.ems_ev_target_limit_w
+
+automation:
+  - alias: "EMS: Apply Controller Command Safely"
+    id: ems_apply_controller_command_safely
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id:
+          - sensor.ems_flexible_load_command
+          - sensor.ems_ev_charger_command
+          - sensor.ems_controller_ev_target
+
+    condition:
+      - condition: state
+        entity_id: input_boolean.ems_hardware_control_enabled
+        state: "on"
+      - condition: state
+        entity_id: input_boolean.ems_manual_override
+        state: "off"
+
+    action:
+      - variables:
+          flexible_command: "{{ states('sensor.ems_flexible_load_command') }}"
+          ev_command: "{{ states('sensor.ems_ev_charger_command') }}"
+          ev_target_w: "{{ states('sensor.ems_controller_ev_target') | int(0) }}"
+
+      - service: script.ems_apply_flexible_load_command
+        data:
+          command: "{{ flexible_command }}"
+
+      - choose:
+          - conditions:
+              - condition: template
+                value_template: "{{ ev_command == 'disable' }}"
+            sequence:
+              - service: script.ems_apply_ev_limit
+                data:
+                  target_power_w: 0
+
+          - conditions:
+              - condition: template
+                value_template: "{{ ev_command == 'enable' }}"
+            sequence:
+              - service: script.ems_apply_ev_limit
+                data:
+                  target_power_w: "{{ ev_target_w }}"
+
+  - alias: "EMS: Log Blocked Automatic Action"
+    id: ems_log_blocked_automatic_action
+    mode: single
+    trigger:
+      - platform: state
+        entity_id:
+          - sensor.ems_flexible_load_command
+          - sensor.ems_ev_charger_command
+
+    condition:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: input_boolean.ems_hardware_control_enabled
+            state: "off"
+          - condition: state
+            entity_id: input_boolean.ems_manual_override
+            state: "on"
+
+    action:
+      - service: logbook.log
+        data:
+          name: "EMS action blocked"
+          message: "Automatic action blocked by hardware-enable gate or manual override."
+          entity_id: input_boolean.ems_hardware_control_enabled
+

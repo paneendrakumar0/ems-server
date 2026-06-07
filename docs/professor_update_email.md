@@ -19,6 +19,7 @@ I have now organized the project into a testable package covering the main layer
 9. A continuous MQTT bridge that subscribes to telemetry and publishes EMS command decisions automatically.
 10. A hardware command adapter that maps EMS decisions to ESP32 relay topics, KinCony relay topics, EV charging limits, and optional Home Assistant service calls.
 11. An offline end-to-end demo that verifies the complete software path from digital-twin telemetry to hardware-adapter actions before physical deployment.
+12. Home Assistant command-to-action automations with dry-run mode, manual override, and a hardware-enable safety gate.
 
 The current implementation is ready for hardware-specific validation. The main information I still need from your side is:
 

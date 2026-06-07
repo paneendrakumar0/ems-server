@@ -22,6 +22,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Hardware command adapter for ESP32 relay, KinCony relay, EV target power, and optional Home Assistant services.
 - Offline end-to-end demo from digital twin to controller bridge to hardware adapter actions.
 - Makefile-based developer workflow.
+- Home Assistant command-to-action automations with dry-run and manual safety gates.
 - Documentation for hardware questions, test procedure, and a professor update email.
 
 ## Done
@@ -46,6 +47,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Hardware command adapter added with dry-run support.
 - Offline end-to-end demo added.
 - Makefile and requirements file added.
+- Home Assistant action automation package added.
 - Local Docker Compose support added for the MQTT/data stack.
 
 ## Partially Done
@@ -66,4 +68,4 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 
 ## Recommended Next Step
 
-Next recommended engineering stage: add Home Assistant automation scripts that consume adapter/controller topics and trigger actual relay service calls in a controlled way.
+Next recommended engineering stage: add a formal project report with architecture, algorithms, safety design, test results, and hardware integration plan.
