@@ -43,6 +43,13 @@
 
 4. Publish commands to MQTT only after the dry-run output is correct.
 
+5. Test the continuous MQTT bridge:
+
+   ```bash
+   python3 -m unittest discover -s tests
+   python3 bridge/mqtt_controller_bridge.py --broker 127.0.0.1
+   ```
+
 ## Phase 4: Relay Hub Validation
 
 1. Flash `esphome/kincony_kc868_a16.yaml` to the KinCony board.

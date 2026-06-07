@@ -24,6 +24,7 @@ The project objective is to reduce grid energy absorption by coordinating:
 - `firmware/esp32_c6_edge_node/` - ESP-IDF firmware skeleton for ESP32-C6 MQTT edge nodes.
 - `simulator/digital_twin.py` - Lightweight local digital-twin simulator for PV, load, battery, EV, and relay topics.
 - `controller/ems_controller.py` - EMS decision layer for flexible-load, EV, grid-import, and battery-reserve actions.
+- `bridge/mqtt_controller_bridge.py` - Continuous MQTT bridge from telemetry to EMS command topics.
 - `deployment/docker-compose.yml` - Local Mosquitto, InfluxDB, and Grafana support stack.
 - `tools/run_closed_loop.py` - Full-day simulation runner that exports controller decisions to CSV.
 - `tools/generate_report.py` - Markdown/SVG report generator for simulation results.
@@ -83,6 +84,18 @@ It displays PV/load/grid power, battery SoC, EV target power, EMS mode, flexible
 ```bash
 python3 tools/run_closed_loop.py --steps 144 --output results/closed_loop_day.csv
 python3 tools/generate_report.py --input results/closed_loop_day.csv
+```
+
+## Continuous MQTT Bridge
+
+```bash
+python3 bridge/mqtt_controller_bridge.py --broker 127.0.0.1
+```
+
+In another terminal, publish simulated telemetry:
+
+```bash
+python3 simulator/digital_twin.py --broker 127.0.0.1 --topic ems/digital_twin/state
 ```
 
 ## Immediate Pending Inputs From Professor Cecati

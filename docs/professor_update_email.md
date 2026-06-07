@@ -16,6 +16,7 @@ I have now organized the project into a testable package covering the main layer
 6. A local digital-twin simulator for PV, load, battery, EV, and grid power-flow testing before physical deployment.
 7. A conservative EMS controller layer that converts telemetry into flexible-load and EV-charging commands while protecting battery reserve and avoiding grid import.
 8. A Home Assistant supervisor dashboard for monitoring energy flow, controller mode, relay states, and research KPIs.
+9. A continuous MQTT bridge that subscribes to telemetry and publishes EMS command decisions automatically.
 
 The current implementation is ready for hardware-specific validation. The main information I still need from your side is:
 

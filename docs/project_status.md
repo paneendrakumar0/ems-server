@@ -18,6 +18,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Continuous stdin JSON-lines mode so the digital twin can feed the EMS controller as a local closed-loop demo.
 - Local deployment support for Mosquitto, InfluxDB, and Grafana.
 - Home Assistant supervisor dashboard for energy flow, storage, EV, controller decisions, relay states, and KPIs.
+- Continuous MQTT controller bridge from telemetry topics to EMS command topics.
 - Documentation for hardware questions, test procedure, and a professor update email.
 
 ## Done
@@ -38,6 +39,7 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 - Markdown/SVG simulation report generation added.
 - Home Assistant MQTT entity package added for digital-twin/controller state.
 - Home Assistant dashboard YAML added for supervisor visualization.
+- Continuous MQTT controller bridge added.
 - Local Docker Compose support added for the MQTT/data stack.
 
 ## Partially Done
@@ -58,4 +60,4 @@ The EMS should be practical, not only theoretical: it should connect to Home Ass
 
 ## Recommended Next Step
 
-Next recommended engineering stage: add a continuous MQTT bridge that subscribes to digital-twin telemetry, applies the EMS controller, and publishes command topics automatically.
+Next recommended engineering stage: add hardware command adapters that translate EMS commands into Home Assistant services, ESP32 relay topics, and EV-charger limits.
