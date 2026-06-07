@@ -10,6 +10,13 @@
 
 2. Check that PV, load, battery SoC, EV power, and grid import/export values are plausible.
 3. Review MQTT topic names and match them with Home Assistant entities.
+4. Run the full offline demo:
+
+   ```bash
+   make offline-demo
+   ```
+
+5. Confirm `results/offline_ems_demo.jsonl` contains telemetry, commands, and adapter actions.
 
 ## Phase 2: Home Assistant Validation
 

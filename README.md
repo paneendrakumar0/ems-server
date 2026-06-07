@@ -30,6 +30,8 @@ The project objective is to reduce grid energy absorption by coordinating:
 - `deployment/docker-compose.yml` - Local Mosquitto, InfluxDB, and Grafana support stack.
 - `tools/run_closed_loop.py` - Full-day simulation runner that exports controller decisions to CSV.
 - `tools/generate_report.py` - Markdown/SVG report generator for simulation results.
+- `scripts/run_offline_ems_demo.py` - End-to-end offline demo from telemetry to hardware adapter actions.
+- `Makefile` - Common validation and demo commands.
 - `docs/` - Status, test plan, hardware questions, and email update draft.
 
 ## Integration Architecture
@@ -85,8 +87,13 @@ It displays PV/load/grid power, battery SoC, EV target power, EMS mode, flexible
 ## Generate A Result CSV
 
 ```bash
-python3 tools/run_closed_loop.py --steps 144 --output results/closed_loop_day.csv
-python3 tools/generate_report.py --input results/closed_loop_day.csv
+make report
+```
+
+## Offline End-To-End Demo
+
+```bash
+make offline-demo
 ```
 
 ## Continuous MQTT Bridge

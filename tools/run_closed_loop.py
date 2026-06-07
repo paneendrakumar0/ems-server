@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import random
 import sys
 from collections import Counter
 from pathlib import Path
@@ -18,7 +19,8 @@ from controller.ems_controller import EmsController, Telemetry, command_payload
 from simulator.digital_twin import simulate_step
 
 
-def run(steps: int, peak_pv_w: int, output: Path) -> dict[str, int]:
+def run(steps: int, peak_pv_w: int, output: Path, seed: int = 42) -> dict[str, int]:
+    random.seed(seed)
     controller = EmsController()
     soc = 55.0
     decisions: Counter[str] = Counter()
@@ -86,9 +88,10 @@ def main() -> None:
     parser.add_argument("--steps", type=int, default=144)
     parser.add_argument("--peak-pv-w", type=int, default=25000)
     parser.add_argument("--output", type=Path, default=Path("results/closed_loop_day.csv"))
+    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
-    summary = run(args.steps, args.peak_pv_w, args.output)
+    summary = run(args.steps, args.peak_pv_w, args.output, args.seed)
     print(json.dumps({"output": str(args.output), "decision_counts": summary}, sort_keys=True))
 
 

@@ -1,0 +1,9 @@
+matplotlib
+numpy
+paho-mqtt
+pandas
+PyYAML
+scikit-learn
+scipy
+streamlit
+

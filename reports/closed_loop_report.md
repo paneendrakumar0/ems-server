@@ -3,18 +3,18 @@
 ## Summary
 
 - Steps simulated: `144`
-- Approximate PV energy: `173.29 kWh`
-- Approximate load energy: `35.04 kWh`
-- Approximate grid import: `0.02 kWh`
-- Final battery SoC: `60.27%`
+- Approximate PV energy: `175.78 kWh`
+- Approximate load energy: `34.98 kWh`
+- Approximate grid import: `0.07 kWh`
+- Final battery SoC: `60.48%`
 - Flexible-load commands: `{'hold': 82, 'enable': 62}`
-- EV-charger commands: `{'hold': 83, 'enable': 61}`
+- EV-charger commands: `{'hold': 84, 'enable': 60}`
 
 ## Controller Modes
 
 - `normal`: 82 steps
-- `self_consumption`: 1 steps
-- `solar_surplus`: 61 steps
+- `self_consumption`: 2 steps
+- `solar_surplus`: 60 steps
 
 ## Plot
 
