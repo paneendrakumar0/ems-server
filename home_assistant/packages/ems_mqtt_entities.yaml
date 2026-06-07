@@ -1,0 +1,115 @@
+# Home Assistant package: EMS MQTT entities for controller/demo operation.
+#
+# These entities can be fed by the local digital twin and EMS controller before
+# real Sungrow/KinCony hardware is available.
+
+mqtt:
+  sensor:
+    - name: "EMS Digital Twin PV Power"
+      unique_id: ems_digital_twin_pv_power
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.pv_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: "EMS Digital Twin Load Power"
+      unique_id: ems_digital_twin_load_power
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.load_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: "EMS Digital Twin Battery SoC"
+      unique_id: ems_digital_twin_battery_soc
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.battery_soc_pct }}"
+      unit_of_measurement: "%"
+      device_class: battery
+      state_class: measurement
+
+    - name: "EMS Digital Twin Battery Power"
+      unique_id: ems_digital_twin_battery_power
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.battery_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: "EMS Digital Twin EV Power"
+      unique_id: ems_digital_twin_ev_power
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.ev_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: "EMS Digital Twin Grid Power"
+      unique_id: ems_digital_twin_grid_power
+      state_topic: "ems/digital_twin/state"
+      value_template: "{{ value_json.grid_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+    - name: "EMS Controller EV Target"
+      unique_id: ems_controller_ev_target
+      state_topic: "ems/controller/command"
+      value_template: "{{ value_json.target_ev_power_w }}"
+      unit_of_measurement: W
+      device_class: power
+      state_class: measurement
+
+  text:
+    - name: "EMS Controller Mode"
+      unique_id: ems_controller_mode
+      state_topic: "ems/controller/command"
+      value_template: "{{ value_json.battery_mode }}"
+
+    - name: "EMS Flexible Load Command"
+      unique_id: ems_flexible_load_command
+      state_topic: "ems/controller/command"
+      value_template: "{{ value_json.flexible_load }}"
+
+    - name: "EMS EV Charger Command"
+      unique_id: ems_ev_charger_command
+      state_topic: "ems/controller/command"
+      value_template: "{{ value_json.ev_charger }}"
+
+    - name: "EMS Controller Reason"
+      unique_id: ems_controller_reason
+      state_topic: "ems/controller/command"
+      value_template: "{{ value_json.reason }}"
+
+template:
+  - sensor:
+      - name: "EMS Demo Solar Surplus Power"
+        unique_id: ems_demo_solar_surplus_power
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set pv = states('sensor.ems_digital_twin_pv_power') | float(0) %}
+          {% set load = states('sensor.ems_digital_twin_load_power') | float(0) %}
+          {{ [pv - load, 0] | max | round(0) }}
+
+      - name: "EMS Demo Self Consumption Ratio"
+        unique_id: ems_demo_self_consumption_ratio
+        unit_of_measurement: "%"
+        state_class: measurement
+        state: >
+          {% set pv = states('sensor.ems_digital_twin_pv_power') | float(0) %}
+          {% set grid = states('sensor.ems_digital_twin_grid_power') | float(0) %}
+          {% set load = states('sensor.ems_digital_twin_load_power') | float(0) %}
+          {% if load <= 0 %}
+            0
+          {% else %}
+            {{ ([load - grid, 0] | max / load * 100) | round(1) }}
+          {% endif %}
+
+input_boolean:
+  ems_manual_override:
+    name: EMS Manual Override
+    icon: mdi:hand-back-right
+

@@ -1,0 +1,145 @@
+step,hour,pv_power_w,load_power_w,battery_soc_pct,battery_power_w,ev_power_w,grid_power_w,relay_recommendation,flexible_load_command,ev_charger_command,battery_mode,target_ev_power_w,reason
+0,0.0,0,950,54.6,-950,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+1,0.17,0,1201,54.1,-1201,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+2,0.33,0,1044,53.67,-1044,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+3,0.5,0,1213,53.16,-1213,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+4,0.67,0,886,52.79,-886,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+5,0.83,0,875,52.43,-875,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+6,1.0,0,1173,51.94,-1173,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+7,1.17,0,1161,51.46,-1161,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+8,1.33,0,1199,50.96,-1199,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+9,1.5,0,936,50.57,-936,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+10,1.67,0,882,50.2,-882,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+11,1.83,0,1126,49.73,-1126,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+12,2.0,0,1059,49.29,-1059,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+13,2.17,0,1058,48.85,-1058,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+14,2.33,0,1208,48.35,-1208,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+15,2.5,0,1128,47.88,-1128,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+16,2.67,0,1136,47.4,-1136,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+17,2.83,0,888,47.03,-888,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+18,3.0,0,866,46.67,-866,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+19,3.17,0,1016,46.25,-1016,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+20,3.33,0,1004,45.83,-1004,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+21,3.5,0,1298,45.29,-1298,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+22,3.67,0,895,44.92,-895,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+23,3.83,0,1018,44.49,-1018,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+24,4.0,0,871,44.13,-871,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+25,4.17,0,939,43.74,-939,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+26,4.33,0,989,43.33,-989,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+27,4.5,0,1121,42.86,-1121,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+28,4.67,0,913,42.48,-913,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+29,4.83,0,1222,41.97,-1222,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+30,5.0,0,980,41.56,-980,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+31,5.17,0,931,41.17,-931,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+32,5.33,0,912,40.79,-912,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+33,5.5,0,1122,40.32,-1122,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+34,5.67,0,920,39.94,-920,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+35,5.83,0,916,39.56,-916,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+36,6.0,0,1058,39.12,-1058,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+37,6.17,1017,883,39.17,134,0,0,hold,hold,hold,normal,0,No control action required.
+38,6.33,1937,1236,39.47,701,0,0,hold,hold,hold,normal,0,No control action required.
+39,6.5,2985,1043,40.28,1942,0,0,hold,hold,hold,normal,0,No control action required.
+40,6.67,3757,1237,41.33,2520,0,0,hold,hold,hold,normal,0,No control action required.
+41,6.83,5105,1184,42.78,3500,0,0,hold,hold,hold,normal,0,No control action required.
+42,7.0,6078,1881,44.24,3500,0,0,hold,hold,hold,normal,0,No control action required.
+43,7.17,6625,2017,45.7,3500,0,0,hold,enable,enable,solar_surplus,2108,Strong solar surplus available; enable flexible loads and EV charging.
+44,7.33,7030,2119,46.25,1311,3600,0,enable_flexible_load,enable,enable,solar_surplus,2411,Strong solar surplus available; enable flexible loads and EV charging.
+45,7.5,8857,2087,47.57,3170,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+46,7.67,9616,1920,49.03,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+47,7.83,11530,2217,50.49,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+48,8.0,12356,2104,51.94,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+49,8.17,11380,1886,53.4,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+50,8.33,12444,2098,54.86,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+51,8.5,15082,2043,56.32,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+52,8.67,15120,1978,57.78,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+53,8.83,16831,2238,59.24,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+54,9.0,15326,1951,60.69,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+55,9.17,15945,1088,62.15,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+56,9.33,16715,979,63.61,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+57,9.5,16436,1141,65.07,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+58,9.67,20285,1228,66.53,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+59,9.83,19626,1099,67.99,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+60,10.0,18241,851,69.44,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+61,10.17,20481,1139,70.9,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+62,10.33,21128,1218,72.36,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+63,10.5,22676,1091,73.82,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+64,10.67,21650,914,75.28,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+65,10.83,20458,867,76.73,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+66,11.0,23408,1028,78.19,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+67,11.17,20294,1213,79.65,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+68,11.33,24098,1079,81.11,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+69,11.5,20437,914,82.57,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+70,11.67,20662,981,84.03,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+71,11.83,21752,1179,85.48,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+72,12.0,21015,1286,86.94,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+73,12.17,24503,974,88.4,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+74,12.33,21927,957,89.86,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+75,12.5,20645,1194,91.32,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+76,12.67,22410,951,92.78,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+77,12.83,22636,1064,94.23,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+78,13.0,23944,960,95.0,3500,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+79,13.17,22133,1267,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+80,13.33,20439,1255,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+81,13.5,20596,975,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+82,13.67,21701,1041,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+83,13.83,19136,1265,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+84,14.0,20829,1062,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+85,14.17,18275,1150,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+86,14.33,19123,899,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+87,14.5,19095,885,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+88,14.67,16714,1276,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+89,14.83,18360,1002,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+90,15.0,15104,1079,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+91,15.17,15017,1129,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+92,15.33,14219,1102,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+93,15.5,14583,1084,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+94,15.67,12203,1109,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+95,15.83,12669,1072,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+96,16.0,10590,920,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+97,16.17,9592,974,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+98,16.33,10080,996,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+99,16.5,8450,1148,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+100,16.67,7417,920,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3600,Strong solar surplus available; enable flexible loads and EV charging.
+101,16.83,6911,1008,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,3403,Strong solar surplus available; enable flexible loads and EV charging.
+102,17.0,6291,1075,95.0,0,3600,0,enable_flexible_load,enable,enable,solar_surplus,2716,Strong solar surplus available; enable flexible loads and EV charging.
+103,17.17,5273,1032,95.0,0,3041,0,enable_flexible_load,enable,enable,solar_surplus,1741,Strong solar surplus available; enable flexible loads and EV charging.
+104,17.33,4110,1267,95.0,0,0,0,hold,enable,hold,self_consumption,0,Solar surplus available; enable flexible building load.
+105,17.5,3247,869,95.0,0,0,0,hold,hold,hold,normal,0,No control action required.
+106,17.67,2154,1297,95.0,0,0,0,hold,hold,hold,normal,0,No control action required.
+107,17.83,966,1142,94.93,-176,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+108,18.0,0,2661,93.82,-2661,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+109,18.17,0,2940,92.59,-2940,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+110,18.33,0,2834,91.41,-2834,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+111,18.5,0,3002,90.16,-3000,0,2,shed_low_priority_load,hold,hold,normal,0,No control action required.
+112,18.67,0,2676,89.05,-2676,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+113,18.83,0,2767,87.89,-2767,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+114,19.0,0,2785,86.73,-2785,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+115,19.17,0,2753,85.59,-2753,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+116,19.33,0,2750,84.44,-2750,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+117,19.5,0,2741,83.3,-2741,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+118,19.67,0,2713,82.17,-2713,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+119,19.83,0,2816,81.0,-2816,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+120,20.0,0,2749,79.85,-2749,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+121,20.17,0,2708,78.72,-2708,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+122,20.33,0,3045,77.47,-3000,0,45,shed_low_priority_load,hold,hold,normal,0,No control action required.
+123,20.5,0,2732,76.33,-2732,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+124,20.67,0,3024,75.08,-3000,0,24,shed_low_priority_load,hold,hold,normal,0,No control action required.
+125,20.83,0,2794,73.92,-2794,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+126,21.0,0,2751,72.77,-2751,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+127,21.17,0,3041,71.52,-3000,0,41,shed_low_priority_load,hold,hold,normal,0,No control action required.
+128,21.33,0,2941,70.3,-2941,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+129,21.5,0,2993,69.05,-2993,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+130,21.67,0,2974,67.81,-2974,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+131,21.83,0,2686,66.69,-2686,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+132,22.0,0,2939,65.47,-2939,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+133,22.17,0,1237,64.95,-1237,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+134,22.33,0,1167,64.47,-1167,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+135,22.5,0,1124,64.0,-1124,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+136,22.67,0,1116,63.53,-1116,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+137,22.83,0,1091,63.08,-1091,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+138,23.0,0,1236,62.56,-1236,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+139,23.17,0,1132,62.09,-1132,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+140,23.33,0,1232,61.58,-1232,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+141,23.5,0,1030,61.15,-1030,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+142,23.67,0,884,60.78,-884,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.
+143,23.83,0,1232,60.27,-1232,0,0,shed_low_priority_load,hold,hold,normal,0,No control action required.

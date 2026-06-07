@@ -1,0 +1,9 @@
+{
+  "pv_power_w": 700,
+  "load_power_w": 3600,
+  "battery_soc_pct": 42,
+  "battery_power_w": -1800,
+  "ev_power_w": 1200,
+  "grid_power_w": 900
+}
+

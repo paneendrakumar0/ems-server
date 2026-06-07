@@ -1,0 +1,41 @@
+# Home Assistant package: research data logging.
+#
+# Replace host, database, username, and password with Professor Cecati's
+# local InfluxDB settings before deployment.
+
+influxdb:
+  host: INFLUXDB_HOST
+  port: 8086
+  database: ems_research_data
+  username: INFLUXDB_USERNAME
+  password: INFLUXDB_PASSWORD
+  max_retries: 3
+  default_measurement: state
+  include:
+    entities:
+      - sensor.sungrow_pv_power
+      - sensor.sungrow_battery_soc
+      - sensor.sungrow_battery_power
+      - sensor.sungrow_load_power
+      - sensor.sungrow_grid_power
+      - sensor.sungrow_ev_power
+      - sensor.ems_solar_surplus_power
+      - sensor.ems_grid_import_power
+      - sensor.ems_edge_node_status
+      - switch.kincony_relay_01
+      - switch.kincony_relay_02
+      - switch.kincony_relay_03
+      - switch.kincony_relay_04
+      - switch.kincony_relay_05
+      - switch.kincony_relay_06
+      - switch.kincony_relay_07
+      - switch.kincony_relay_08
+      - switch.kincony_relay_09
+      - switch.kincony_relay_10
+      - switch.kincony_relay_11
+      - switch.kincony_relay_12
+      - switch.kincony_relay_13
+      - switch.kincony_relay_14
+      - switch.kincony_relay_15
+      - switch.kincony_relay_16
+

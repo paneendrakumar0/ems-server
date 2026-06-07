@@ -1,0 +1,107 @@
+# Home Assistant package: Sungrow SH20T inverter and AC11E wallbox telemetry.
+#
+# Replace placeholders before enabling:
+# - SUNGROW_INVERTER_IP
+# - slave IDs
+# - register addresses/scales after checking the exact Sungrow documentation.
+
+modbus:
+  - name: sungrow
+    type: tcp
+    host: SUNGROW_INVERTER_IP
+    port: 502
+    delay: 2
+    timeout: 5
+    sensors:
+      - name: Sungrow PV Power
+        unique_id: sungrow_pv_power
+        slave: 1
+        address: 13009
+        input_type: input
+        count: 2
+        data_type: uint32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scale: 1
+
+      - name: Sungrow Battery SoC
+        unique_id: sungrow_battery_soc
+        slave: 1
+        address: 13022
+        input_type: input
+        data_type: uint16
+        unit_of_measurement: "%"
+        device_class: battery
+        state_class: measurement
+        scale: 0.1
+
+      - name: Sungrow Load Power
+        unique_id: sungrow_load_power
+        slave: 1
+        address: 13007
+        input_type: input
+        count: 2
+        data_type: uint32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scale: 1
+
+      - name: Sungrow Grid Power
+        unique_id: sungrow_grid_power
+        slave: 1
+        address: 13035
+        input_type: input
+        count: 2
+        data_type: int32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scale: 1
+
+      - name: Sungrow Battery Power
+        unique_id: sungrow_battery_power
+        slave: 1
+        address: 13021
+        input_type: input
+        count: 2
+        data_type: int32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scale: 1
+
+      - name: Sungrow EV Charger Active Power
+        unique_id: sungrow_ev_power
+        slave: 1
+        address: 13011
+        input_type: input
+        count: 2
+        data_type: uint32
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        scale: 1
+
+template:
+  - sensor:
+      - name: EMS Solar Surplus Power
+        unique_id: ems_solar_surplus_power
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set pv = states('sensor.sungrow_pv_power') | float(0) %}
+          {% set load = states('sensor.sungrow_load_power') | float(0) %}
+          {{ [pv - load, 0] | max | round(0) }}
+
+      - name: EMS Grid Import Power
+        unique_id: ems_grid_import_power
+        unit_of_measurement: W
+        device_class: power
+        state_class: measurement
+        state: >
+          {% set grid = states('sensor.sungrow_grid_power') | float(0) %}
+          {{ [grid, 0] | max | round(0) }}
+

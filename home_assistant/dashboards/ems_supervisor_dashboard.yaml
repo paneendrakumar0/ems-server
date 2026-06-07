@@ -1,0 +1,138 @@
+title: Smart Building EMS
+views:
+  - title: Supervisor
+    path: ems-supervisor
+    icon: mdi:home-lightning-bolt
+    type: sections
+    max_columns: 3
+    sections:
+      - type: grid
+        title: Energy Flow
+        cards:
+          - type: gauge
+            entity: sensor.ems_digital_twin_pv_power
+            name: PV Power
+            min: 0
+            max: 30000
+            severity:
+              green: 5000
+              yellow: 15000
+              red: 25000
+          - type: gauge
+            entity: sensor.ems_digital_twin_load_power
+            name: Building Load
+            min: 0
+            max: 10000
+            severity:
+              green: 0
+              yellow: 4000
+              red: 8000
+          - type: gauge
+            entity: sensor.ems_digital_twin_grid_power
+            name: Grid Import
+            min: 0
+            max: 8000
+            severity:
+              green: 0
+              yellow: 500
+              red: 2500
+          - type: gauge
+            entity: sensor.ems_demo_solar_surplus_power
+            name: Solar Surplus
+            min: 0
+            max: 20000
+            severity:
+              green: 3000
+              yellow: 1000
+              red: 0
+
+      - type: grid
+        title: Storage And EV
+        cards:
+          - type: gauge
+            entity: sensor.ems_digital_twin_battery_soc
+            name: Battery SoC
+            min: 0
+            max: 100
+            severity:
+              green: 45
+              yellow: 25
+              red: 0
+          - type: tile
+            entity: sensor.ems_digital_twin_battery_power
+            name: Battery Power
+          - type: tile
+            entity: sensor.ems_digital_twin_ev_power
+            name: EV Actual Power
+          - type: tile
+            entity: sensor.ems_controller_ev_target
+            name: EV Target Power
+
+      - type: grid
+        title: EMS Decisions
+        cards:
+          - type: tile
+            entity: sensor.ems_controller_mode
+            name: Controller Mode
+          - type: tile
+            entity: sensor.ems_flexible_load_command
+            name: Flexible Load Command
+          - type: tile
+            entity: sensor.ems_ev_charger_command
+            name: EV Charger Command
+          - type: entity
+            entity: sensor.ems_controller_reason
+            name: Decision Reason
+          - type: tile
+            entity: input_boolean.ems_manual_override
+            name: Manual Override
+
+      - type: grid
+        title: Relay Hub
+        cards:
+          - type: entities
+            title: KinCony KC868-A16 Relays
+            entities:
+              - switch.kincony_relay_01
+              - switch.kincony_relay_02
+              - switch.kincony_relay_03
+              - switch.kincony_relay_04
+              - switch.kincony_relay_05
+              - switch.kincony_relay_06
+              - switch.kincony_relay_07
+              - switch.kincony_relay_08
+              - switch.kincony_relay_09
+              - switch.kincony_relay_10
+              - switch.kincony_relay_11
+              - switch.kincony_relay_12
+              - switch.kincony_relay_13
+              - switch.kincony_relay_14
+              - switch.kincony_relay_15
+              - switch.kincony_relay_16
+
+      - type: grid
+        title: Research KPIs
+        cards:
+          - type: statistic
+            entity: sensor.ems_demo_self_consumption_ratio
+            name: Self Consumption
+            stat_type: mean
+            period:
+              calendar:
+                period: day
+          - type: statistic
+            entity: sensor.ems_digital_twin_grid_power
+            name: Avg Grid Import
+            stat_type: mean
+            period:
+              calendar:
+                period: day
+          - type: history-graph
+            title: EMS Power Trends
+            hours_to_show: 24
+            entities:
+              - sensor.ems_digital_twin_pv_power
+              - sensor.ems_digital_twin_load_power
+              - sensor.ems_digital_twin_grid_power
+              - sensor.ems_controller_ev_target
+

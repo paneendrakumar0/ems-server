@@ -1,0 +1,202 @@
+substitutions:
+  name: ems-plc-hub
+  friendly_name: KinCony KC868-A16 EMS Hub
+  mqtt_broker: MQTT_BROKER_IP
+  wifi_ssid: WIFI_SSID
+  wifi_password: WIFI_PASSWORD
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+logger:
+
+api:
+
+ota:
+  platform: esphome
+
+wifi:
+  ssid: ${wifi_ssid}
+  password: ${wifi_password}
+  ap:
+    ssid: "${friendly_name} Fallback"
+    password: "emsfallback"
+
+mqtt:
+  broker: ${mqtt_broker}
+  topic_prefix: ems/kincony_a16
+
+i2c:
+  sda: 4
+  scl: 5
+  scan: true
+
+pcf8574:
+  - id: pcf8574_hub_1
+    address: 0x24
+    pcf8575: false
+  - id: pcf8574_hub_2
+    address: 0x25
+    pcf8575: false
+
+switch:
+  - platform: gpio
+    id: relay_01
+    name: "KinCony Relay 01"
+    object_id: kincony_relay_01
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 0
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_02
+    name: "KinCony Relay 02"
+    object_id: kincony_relay_02
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 1
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_03
+    name: "KinCony Relay 03"
+    object_id: kincony_relay_03
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 2
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_04
+    name: "KinCony Relay 04"
+    object_id: kincony_relay_04
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 3
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_05
+    name: "KinCony Relay 05"
+    object_id: kincony_relay_05
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 4
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_06
+    name: "KinCony Relay 06"
+    object_id: kincony_relay_06
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 5
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_07
+    name: "KinCony Relay 07"
+    object_id: kincony_relay_07
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 6
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_08
+    name: "KinCony Relay 08"
+    object_id: kincony_relay_08
+    pin:
+      pcf8574: pcf8574_hub_1
+      number: 7
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_09
+    name: "KinCony Relay 09"
+    object_id: kincony_relay_09
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 0
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_10
+    name: "KinCony Relay 10"
+    object_id: kincony_relay_10
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 1
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_11
+    name: "KinCony Relay 11"
+    object_id: kincony_relay_11
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 2
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_12
+    name: "KinCony Relay 12"
+    object_id: kincony_relay_12
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 3
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_13
+    name: "KinCony Relay 13"
+    object_id: kincony_relay_13
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 4
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_14
+    name: "KinCony Relay 14"
+    object_id: kincony_relay_14
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 5
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_15
+    name: "KinCony Relay 15"
+    object_id: kincony_relay_15
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 6
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: relay_16
+    name: "KinCony Relay 16"
+    object_id: kincony_relay_16
+    pin:
+      pcf8574: pcf8574_hub_2
+      number: 7
+      mode: OUTPUT
+      inverted: true
+
+sensor:
+  - platform: wifi_signal
+    name: "KinCony EMS WiFi Signal"
+    update_interval: 60s
+
+binary_sensor:
+  - platform: status
+    name: "KinCony EMS Status"
+

@@ -1,0 +1,34 @@
+alias: "EMS: Start Dishwasher On Solar Surplus"
+description: "Starts a Bosch/Siemens dishwasher Eco program when sustained solar surplus is available."
+mode: single
+
+trigger:
+  - platform: numeric_state
+    entity_id: sensor.ems_solar_surplus_power
+    above: 2500
+    for:
+      minutes: 10
+
+condition:
+  - condition: state
+    entity_id: sensor.bosch_dishwasher_operation_state
+    state: "Ready"
+  - condition: numeric_state
+    entity_id: sensor.sungrow_battery_soc
+    above: 45
+  - condition: numeric_state
+    entity_id: sensor.ems_grid_import_power
+    below: 100
+
+action:
+  - service: home_connect.start_program
+    target:
+      entity_id: switch.bosch_dishwasher_power
+    data:
+      program: "Dishcare.Dishwasher.Program.Eco50"
+
+  - service: notify.notify
+    data:
+      title: "EMS solar optimization"
+      message: "Solar surplus is available; dishwasher Eco program was requested."
+
