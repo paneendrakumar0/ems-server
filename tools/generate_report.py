@@ -124,7 +124,7 @@ def write_markdown(rows: list[dict[str, str]], chart_path: Path, output: Path) -
 
 ## Interpretation
 
-The rule-based EMS enables flexible load and EV charging during strong solar surplus, keeps commands neutral during ordinary operation, and remains structured for later hardware mapping through MQTT/Home Assistant. This report is generated from simulated data and should be repeated with real Sungrow/Home Assistant telemetry after Professor Cecati provides hardware details.
+The rule-based EMS enables flexible load and EV charging during strong solar surplus, keeps commands neutral during ordinary operation, and remains structured for later hardware mapping through MQTT/Home Assistant. This report is generated from simulated data and should be repeated with real Sungrow/Home Assistant telemetry after hardware configuration details are available.
 """
     output.write_text(md, encoding="utf-8")
 
@@ -146,4 +146,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

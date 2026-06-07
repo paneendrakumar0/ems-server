@@ -36,11 +36,10 @@ Each line contains:
 - EMS controller command.
 - Hardware adapter actions that would be sent to ESP32, KinCony, EV charger, or Home Assistant.
 
-## Why This Matters
+## Validation Scope
 
-This is the safest complete-system proof before touching Professor Cecati's hardware. It verifies that the internal interfaces are aligned:
+This is the safest complete-system proof before physical hardware is connected. It verifies that the internal interfaces are aligned:
 
 - Telemetry field names match the controller.
 - Controller payloads match the hardware adapter.
 - Adapter dry-run actions are visible and reviewable.
-

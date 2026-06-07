@@ -53,7 +53,7 @@ start_mqtt_listener()
 # 2. UI HEADER
 # ==========================================
 st.title("⚡ Advanced Building Energy Management System (EMS)")
-st.markdown("**Developed by Paneendra Kumar | Supervised by Prof. Carlo Cecati**")
+st.markdown("Simulation, control, and MQTT integration for smart-building energy management.")
 
 # ==========================================
 # 3. SIDEBAR CONTROLS & APPLIANCE SELECTION
@@ -70,7 +70,7 @@ if ha_state["override"]:
     smart_shift = True
 else:
     st.sidebar.info("🔴 Home Assistant Override: INACTIVE")
-    smart_shift = st.sidebar.checkbox("Enable Local AI Smart Load Shifting", value=False)
+    smart_shift = st.sidebar.checkbox("Enable Local Predictive Load Shifting", value=False)
 
 st.sidebar.markdown("---")
 st.sidebar.subheader("🌤️ Environmental Conditions")
@@ -114,7 +114,7 @@ mqtt_broker = st.sidebar.text_input("MQTT Broker IP", value="127.0.0.1")
 run_broadcast = st.sidebar.button("🚀 Broadcast to Home Assistant")
 
 # ==========================================
-# 4. NEURAL NETWORK TRAINING (The ML Forecaster)
+# 4. PV FORECAST MODEL TRAINING
 # ==========================================
 @st.cache_resource
 def train_neural_network(pv_peak_val):
@@ -336,7 +336,7 @@ st.markdown("---")
 
 fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(14, 16), sharex=True)
 
-ax1.stackplot(hours, [plot_base_load, plot_shift_load], labels=['Fixed Base Load', 'AI-Managed Shiftable Load'], colors=['#4A90E2', '#50E3C2'], alpha=0.85)
+ax1.stackplot(hours, [plot_base_load, plot_shift_load], labels=['Fixed Base Load', 'Managed Shiftable Load'], colors=['#4A90E2', '#50E3C2'], alpha=0.85)
 ax1.plot(hours, df['PV'], label='Actual PV Generation (kW)', color='#F5A623', linewidth=4)
 ax1.plot(hours, pv_gen_predicted, label='Neural Network Forecast (kW)', color='#bd10e0', linewidth=3, linestyle=':')
 ax1.set_title(f'Dynamic Load vs. PV Generation ({weather})', fontsize=16, fontweight='bold')

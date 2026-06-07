@@ -1,6 +1,6 @@
 # Smart Building EMS for PV, Battery, EV, and Flexible Loads
 
-This repository contains the current implementation package for Professor Carlo Cecati's collaborative smart-building Energy Management System (EMS).
+This repository contains a smart-building Energy Management System (EMS) for photovoltaic generation, battery storage, EV charging, and flexible-load coordination.
 
 The project objective is to reduce grid energy absorption by coordinating:
 
@@ -33,7 +33,7 @@ The project objective is to reduce grid energy absorption by coordinating:
 - `tools/generate_report.py` - Markdown/SVG report generator for simulation results.
 - `scripts/run_offline_ems_demo.py` - End-to-end offline demo from telemetry to hardware adapter actions.
 - `Makefile` - Common validation and demo commands.
-- `docs/` - Status, test plan, hardware questions, and email update draft.
+- `docs/` - Technical setup, validation, and integration references.
 
 ## Integration Architecture
 
@@ -119,7 +119,7 @@ python3 adapters/hardware_command_adapter.py \
   --dry-run
 ```
 
-## Immediate Pending Inputs From Professor Cecati
+## Hardware Configuration Inputs
 
 - Local IP address and Modbus unit/slave IDs for SH20T and AC11E.
 - Confirmed Modbus register map for PV power, battery SoC, load power, grid power, and wallbox power.

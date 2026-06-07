@@ -41,7 +41,7 @@ script:
               - service: logbook.log
                 data:
                   name: "EMS dry run"
-                  message: "Flexible load command would be applied: {{ command }}"
+                  message: "Dry-run flexible-load command: {{ command }}"
                   entity_id: input_boolean.ems_action_dry_run
 
           - conditions:
@@ -83,14 +83,14 @@ script:
               - service: logbook.log
                 data:
                   name: "EMS dry run"
-                  message: "EV limit would be applied: {{ target_power_w | int(0) }} W"
+                  message: "Dry-run EV limit command: {{ target_power_w | int(0) }} W"
                   entity_id: input_number.ems_ev_target_limit_w
 
         default:
           - service: logbook.log
             data:
               name: "EMS EV limit"
-              message: "Replace this log action with the wallbox/Home Assistant EV limit service after AC11E integration is confirmed."
+              message: "Wallbox limit service not configured; command recorded only."
               entity_id: input_number.ems_ev_target_limit_w
 
 automation:
@@ -164,4 +164,3 @@ automation:
           name: "EMS action blocked"
           message: "Automatic action blocked by hardware-enable gate or manual override."
           entity_id: input_boolean.ems_hardware_control_enabled
-

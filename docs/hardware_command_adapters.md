@@ -57,8 +57,7 @@ Remove `--dry-run` only after relay mapping and EV charging limits are confirmed
 
 ## Safety Notes
 
-- Keep dry-run enabled until Professor Cecati confirms physical relay-to-load mapping.
+- Keep dry-run enabled until physical relay-to-load mapping is confirmed.
 - Do not connect compressor, induction, oven, or EV hardware until contactors/interlocks are checked.
 - Use low-voltage dummy loads for the first relay test.
 - Keep manual override available in Home Assistant.
-

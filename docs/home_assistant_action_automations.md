@@ -32,7 +32,7 @@ EV limit:
 sensor.ems_controller_ev_target -> input_number.ems_ev_target_limit_w
 ```
 
-The EV action currently logs a placeholder when dry-run is off. Replace that placeholder with the Sungrow AC11E/Home Assistant wallbox service after Professor Cecati confirms the integration.
+The EV action currently logs a placeholder when dry-run is off. Replace that placeholder with the Sungrow AC11E/Home Assistant wallbox service after the wallbox integration is confirmed.
 
 ## Deployment
 
@@ -43,7 +43,7 @@ The EV action currently logs a placeholder when dry-run is off. Replace that pla
 5. Watch Logbook entries while controller commands arrive.
 6. Replace placeholder entity IDs only after physical relay mapping is confirmed.
 
-## Why This Matters
+## Integration Scope
 
 This closes the Home Assistant loop:
 
@@ -52,4 +52,3 @@ EMS command MQTT sensors -> Home Assistant safety gates -> scripts -> relay/EV a
 ```
 
 It prepares the project for physical testing without allowing accidental hardware switching.
-

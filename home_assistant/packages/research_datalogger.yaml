@@ -1,7 +1,7 @@
 # Home Assistant package: research data logging.
 #
-# Replace host, database, username, and password with Professor Cecati's
-# local InfluxDB settings before deployment.
+# Replace host, database, username, and password with deployment-specific
+# InfluxDB settings before enabling.
 
 influxdb:
   host: INFLUXDB_HOST
@@ -38,4 +38,3 @@ influxdb:
       - switch.kincony_relay_14
       - switch.kincony_relay_15
       - switch.kincony_relay_16
-

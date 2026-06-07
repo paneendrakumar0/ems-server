@@ -18,7 +18,7 @@ The first process generates simulated PV, load, battery, EV, and grid telemetry.
 - During strong solar surplus with healthy battery SoC, it should enable flexible loads and EV charging.
 - If `manual_override` is present and true in telemetry, it should hold automatic commands.
 
-## Why This Matters
+## Validation Scope
 
 This provides a local proof that the project is not only a dashboard/configuration package. It now has a closed-loop control path:
 
@@ -27,4 +27,3 @@ telemetry -> EMS decision -> command payload
 ```
 
 The same command payload can later be published to MQTT and mapped to Home Assistant, ESP32-C6 edge nodes, or KinCony relay switches.
-
